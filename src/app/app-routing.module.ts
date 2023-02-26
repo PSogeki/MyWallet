@@ -11,6 +11,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'poste',
+    loadChildren: () => import('./poste/poste.module').then( m => m.PostePageModule)
+  },
+  {
+    path: 'buddybank',
+    loadChildren: () => import('./buddybank/buddybank.module').then( m => m.BuddybankPageModule)
+  },
+  {
+    path: 'paypal',
+    loadChildren: () => import('./paypal/paypal.module').then( m => m.PaypalPageModule)
+  },
+  {
+    path: 'contanti',
+    loadChildren: () => import('./contanti/contanti.module').then( m => m.ContantiPageModule)
+  },
 ];
 
 @NgModule({
