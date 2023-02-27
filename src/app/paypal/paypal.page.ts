@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-paypal',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paypal.page.scss'],
 })
 export class PaypalPage implements OnInit {
-
-  constructor() { }
+  money: any;
+  
+  constructor(private home: HomePage) { }
 
   ngOnInit() {
+    this.money = this.home.paypal;
   }
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-poste',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poste.page.scss'],
 })
 export class PostePage implements OnInit {
-
-  constructor() { }
+  money: any;
+  
+  constructor(private home: HomePage) { }
 
   ngOnInit() {
+    this.money = this.home.poste;
   }
-
 }
