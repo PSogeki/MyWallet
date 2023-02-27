@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'contanti',
     loadChildren: () => import('./contanti/contanti.module').then( m => m.ContantiPageModule)
   },
+  {
+    path: 'movimento',
+    loadChildren: () => import('./movimento/movimento.module').then( m => m.MovimentoPageModule)
+  },
 ];
 
 @NgModule({
