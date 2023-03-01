@@ -45,10 +45,11 @@
           </ion-buttons-->
         </ion-toolbar>
       </ion-header>
-      <ion-content class="ion-padding">
 
+      <ion-content class="ion-padding">
+        <p>
         <ion-list>
-          <ion-radio-group value="tipologia">
+          <ion-radio-group [allowEmptySelection]="false" value="tipologia">
             <ion-item>
               <ion-label>Poste</ion-label>
               <ion-radio slot="end" value="poste"></ion-radio>
@@ -66,10 +67,11 @@
         
             <ion-item>
               <ion-label>Contanti</ion-label>
-              <ion-radio slot="end" value="contanti" ></ion-radio>
+              <ion-radio slot="end" value="contanti" checked></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-list>
+        </p>
 
         <ion-item>
           <ion-label position="stacked">Causale</ion-label>
