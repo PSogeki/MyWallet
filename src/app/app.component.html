@@ -1,36 +1,31 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="home-outline"></ion-icon>
-        Home
-      </ion-tab-button>
-      <ion-tab-button tab="poste">
-        <ion-icon name="mail-outline"></ion-icon>
-        Poste
-      </ion-tab-button>
-      <ion-tab-button tab="buddybank">
-        <ion-icon name="logo-euro"></ion-icon>
-        Buddy
-      </ion-tab-button>
-      <ion-tab-button tab="paypal">
-        <ion-icon name="logo-paypal"></ion-icon>
-        PayPal
-      </ion-tab-button>
-      <ion-tab-button tab="contanti">
-        <ion-icon name="cash-outline"></ion-icon>
-        Contanti
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
-  <ion-fab slot="fixed" style="margin-bottom: 20%;" vertical="bottom" horizontal="end">
-    <ion-fab-button id="open-modal">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<ion-tabs>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      Home
+    </ion-tab-button>
+    <ion-tab-button tab="poste">
+      <ion-icon name="mail-outline"></ion-icon>
+      Poste
+    </ion-tab-button>
+    <ion-tab-button tab="buddybank">
+      <ion-icon name="logo-euro"></ion-icon>
+      Buddy
+    </ion-tab-button>
+    <ion-tab-button tab="paypal">
+      <ion-icon name="logo-paypal"></ion-icon>
+      PayPal
+    </ion-tab-button>
+    <ion-tab-button tab="contanti">
+      <ion-icon name="cash-outline"></ion-icon>
+      Contanti
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
 
   <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
     <ng-template>
@@ -81,5 +76,11 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+
+  <ion-fab slot="fixed" vertical="bottom" style="margin-bottom: 20%;" horizontal="end">
+    <ion-fab-button size="small" id="open-modal">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-app>

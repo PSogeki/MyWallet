@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-buddybank',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buddybank.page.scss'],
 })
 export class BuddybankPage implements OnInit {
-
-  constructor() { }
+  money: any;
+  
+  constructor(private home: HomePage) { }
 
   ngOnInit() {
+    this.money = this.home.buddybank;
   }
 
 }

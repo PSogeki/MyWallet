@@ -10,6 +10,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class AppComponent {
   @ViewChild(IonModal) modal!: IonModal;
 
+  constructor() {}
+
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
