@@ -1,29 +1,39 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   @ViewChild(IonModal) modal!: IonModal;
 
-  constructor() {}
+  credentials: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.credentials = this.fb.group({
+			data: ['', [Validators.required]],
+			tipo: ['', [Validators.required]],
+      casuale: ['', [Validators.required]],
+		});
+  }
+
+  ngOnInit() {
+    this.credentials = this.fb.group({
+			data: ['', [Validators.required]],
+			tipo: ['', [Validators.required]],
+      casuale: ['', [Validators.required]],
+		});
+  }
 
   cancel() {
-    this.modal.dismiss(null, 'cancel');
+    this.modal.dismiss();
   }
 
-  confirm() {
-    this.modal.dismiss('confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      
-    }
+  movimento(){
+    //invia credential al service per la creazione del nuovo movimento
+    this.modal.dismiss();
   }
 }
