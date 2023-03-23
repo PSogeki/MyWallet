@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { IonModal } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +10,13 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class AppComponent {
   @ViewChild(IonModal) modal!: IonModal;
 
+  mov!: FormGroup;
+
   constructor() {}
 
   cancel() {
-    this.modal.dismiss(null, 'cancel');
+    this.modal.dismiss();
   }
 
-  confirm() {
-    this.modal.dismiss('confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-
-  }
+  nuovoMovimento() {}
 }
