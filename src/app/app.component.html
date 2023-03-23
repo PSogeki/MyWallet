@@ -33,24 +33,59 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ion-modal trigger="open-modal">
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-icon name="arrow-back" size="large" (click)="cancel()"></ion-icon>
+          <ion-buttons slot="start" style="margin-left: 5%;">
+            <ion-icon name="arrow-back-outline" size="large" (click)="cancel()"></ion-icon>
           </ion-buttons>
           <ion-title>Nuovo movimento</ion-title>
-          <!--ion-buttons slot="end">
-            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-          </ion-buttons-->
         </ion-toolbar>
       </ion-header>
+
       <ion-content class="ion-padding">
-        <ion-item>
-          <ion-label position="stacked">Enter your name</ion-label>
-          <ion-input type="text" placeholder="Your name"></ion-input>
-        </ion-item>
+        <form (ngSubmit)="nuovoMovimento()" [formGroup]="mov">
+          <ion-item fill="solid" class="ion-margin-bottom">
+            <ion-label position="stacked">Data</ion-label>
+            <ion-input type="date" formControlName="data"></ion-input>
+          </ion-item>
+
+          <ion-item fill="solid" class="ion-margin-bottom">
+            <ion-label position="stacked">Causale</ion-label>
+            <ion-input type="text" formControlName="casuale"></ion-input>
+          </ion-item>
+
+          <ion-item fill="solid" class="ion-margin-bottom">
+            <ion-list>
+              <ion-radio-group [allowEmptySelection]="false" value="contanti" formControlName="tipo">
+                <ion-item>
+                  <ion-label>Poste</ion-label>
+                  <ion-radio slot="end" value="poste"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>BuddyBank</ion-label>
+                  <ion-radio slot="end" value="buddybank"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>PayPal</ion-label>
+                  <ion-radio slot="end" value="paypal"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Contanti</ion-label>
+                  <ion-radio slot="end" value="contanti" checked></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+          </ion-item>
+
+          <ion-item fill="solid" class="ion-margin-bottom">
+            <ion-label position="stacked">Somma</ion-label>
+            <ion-input type="number" formControlName="somma"></ion-input>
+          </ion-item>
+      
+          <ion-button type="submit" expand="block" [disabled]="!mov.valid">Conferma</ion-button>
+        </form>
       </ion-content>
     </ng-template>
   </ion-modal>
